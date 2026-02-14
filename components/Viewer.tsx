@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { PageInfo } from '../types';
-import { ChevronLeft, ChevronRight, ZoomIn, ZoomOut } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface ViewerProps {
   currentPage: PageInfo;
@@ -23,13 +23,11 @@ const Viewer: React.FC<ViewerProps> = ({
   total,
   currentNumber
 }) => {
-  const [isZoomed, setIsZoomed] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  // Reset loading and zoom state when page changes
+  // Reset loading state when page changes
   useEffect(() => {
     setLoading(true);
-    setIsZoomed(false);
   }, [currentPage.id]);
 
   return (
@@ -48,23 +46,13 @@ const Viewer: React.FC<ViewerProps> = ({
             {currentNumber} <span className="mx-1 text-gray-400">/</span> {total}
           </div>
 
-          <div className="h-6 w-px bg-gray-200 hidden sm:block"></div>
 
-          <div className="flex items-center gap-1">
-            <button
-              onClick={() => setIsZoomed(!isZoomed)}
-              className="p-2 hover:bg-gray-100 rounded-lg text-gray-600 transition-colors"
-              title={isZoomed ? "Actual Size" : "Zoom Fit"}
-            >
-              {isZoomed ? <ZoomOut size={18} /> : <ZoomIn size={18} />}
-            </button>
-          </div>
         </div>
       </header>
 
       {/* Content Area */}
       <div className="flex-1 overflow-auto bg-slate-200 flex items-center justify-center p-0 custom-scrollbar relative">
-        <div className={`relative transition-all duration-300 ${isZoomed ? 'w-full' : 'h-full w-full flex items-center justify-center'}`}>
+        <div className="h-full w-full flex items-center justify-center">
           {loading && (
             <div className="absolute inset-0 flex items-center justify-center bg-white/50 animate-pulse z-0 rounded-lg">
               <div className="flex flex-col items-center">
@@ -81,7 +69,8 @@ const Viewer: React.FC<ViewerProps> = ({
             className={`
               block shadow-2xl bg-white border border-gray-300 transition-all duration-500 ease-in-out
               ${loading ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}
-              ${isZoomed ? 'w-full' : 'max-h-full max-w-full object-contain'}
+              ${loading ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}
+              h-full w-auto object-contain max-h-full
             `}
           />
         </div>
