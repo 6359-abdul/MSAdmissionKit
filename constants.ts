@@ -2,7 +2,7 @@
 import { PageInfo } from './types';
 
 export const BROCHURE_PAGES: PageInfo[] = [
- { id: 1, title: "Admission Kit Cover", imageUrl: "/pages/page_1.jpg" },
+  { id: 1, title: "Admission Kit Cover", imageUrl: "/pages/page_1.jpg" },
   { id: 2, title: "Enquiry Form", imageUrl: "/pages/page_2.jpg" },
   { id: 3, title: "Office Use Checklist", imageUrl: "/pages/page_3.jpg" },
   { id: 4, title: "Why MS? The Right Choice", imageUrl: "/pages/page_4.jpg" },
@@ -20,7 +20,7 @@ export const BROCHURE_PAGES: PageInfo[] = [
   { id: 16, title: "Faculty Bios - Group B", imageUrl: "/pages/page_16.jpg" },
   { id: 17, title: "Faculty Bios - Group C", imageUrl: "/pages/page_17.jpg" },
   { id: 18, title: "Faculty Bios - Group D", imageUrl: "/pages/page_18.jpg" },
-  { id: 19,title: "Faculty Bios - Group D", imageUrl: "/pages/page_19.jpg"},
+  { id: 19, title: "Faculty Bios - Group D", imageUrl: "/pages/page_19.jpg" },
   { id: 20, title: "Infrastructure & Student Safety", imageUrl: "/pages/page_20.jpg" },
   { id: 21, title: "Campus Design", imageUrl: "/pages/page_21.jpg" },
   { id: 22, title: "Safety & Emergency", imageUrl: "/pages/page_22.jpg" },
@@ -42,5 +42,5 @@ export const BROCHURE_PAGES: PageInfo[] = [
   { id: 38, title: "National Footprint - IITs", imageUrl: "/pages/page_38.jpg" },
   { id: 39, title: "Medical Footprint - NEET", imageUrl: "/pages/page_39.jpg" },
   { id: 40, title: "Admission Closure Process", imageUrl: "/pages/page_40.jpg" },
-  { id: 41, title: "Thank You / Back Cover", imageUrl: "/pages/page_41 .jpg" }
+  { id: 41, title: "Thank You / Back Cover", imageUrl: "/pages/page_41.jpg" }
 ];
