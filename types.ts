@@ -2,7 +2,7 @@
 export interface PageInfo {
   id: number;
   title: string;
-  category: string;
+  category?: string;
   imageUrl: string;
 }
 
