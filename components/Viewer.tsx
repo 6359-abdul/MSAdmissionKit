@@ -111,7 +111,7 @@ const Viewer: React.FC<ViewerProps> = ({
         </div>
       </div>
 
-      {/* Floating Navigation Controls */}
+      {/* Floating Navigation Controls 
       <button
         onClick={onPrev}
         disabled={!canPrev}
@@ -138,7 +138,7 @@ const Viewer: React.FC<ViewerProps> = ({
         `}
       >
         <ChevronRight size={32} />
-      </button>
+      </button>*/}
 
       {/* Progress Bar */}
       <div className="h-1 w-full bg-gray-200 overflow-hidden">
