@@ -33,7 +33,7 @@ const Viewer: React.FC<ViewerProps> = ({
   return (
     <main className="flex-1 flex flex-col relative bg-slate-100 overflow-hidden">
       {/* Header Bar */}
-      <header className="h-14 bg-white border-b border-gray-200 flex items-center justify-between px-4 z-10 shadow-sm relative">
+      <header className="h-10 bg-white border-b border-gray-200 flex items-center justify-between px-4 z-10 shadow-sm relative">
         <div className="flex items-center gap-4">
           <div className="hidden sm:block">
             <h2 className="text-sm font-bold text-gray-800">{currentPage.title}</h2>
@@ -45,14 +45,27 @@ const Viewer: React.FC<ViewerProps> = ({
           <div className="flex items-center bg-gray-100 rounded-lg px-3 py-1 text-xs font-bold text-gray-600">
             {currentNumber} <span className="mx-1 text-gray-400">/</span> {total}
           </div>
-
-
+          <button
+            onClick={() => {
+              if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+              } else {
+                document.exitFullscreen();
+              }
+            }}
+            className="p-1.5 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-600 transition-colors"
+            title="Toggle Fullscreen"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" />
+            </svg>
+          </button>
         </div>
       </header>
 
       {/* Content Area */}
-      <div className="flex-1 overflow-auto bg-slate-200 flex items-center justify-center p-0 custom-scrollbar relative">
-        <div className="h-full w-full flex items-center justify-center">
+      <div className="flex-1 overflow-auto bg-slate-200 flex items-center justify-center custom-scrollbar relative">
+        <div className="h-full w-full flex items-center justify-center" style={{ maxWidth: '100%', maxHeight: '100%' }}>
           {loading && (
             <div className="absolute inset-0 flex items-center justify-center bg-white/50 animate-pulse z-0 rounded-lg">
               <div className="flex flex-col items-center">
@@ -67,10 +80,9 @@ const Viewer: React.FC<ViewerProps> = ({
             alt={currentPage.title}
             onLoad={() => setLoading(false)}
             className={`
-              block shadow-2xl bg-white border border-gray-300 transition-all duration-500 ease-in-out
+              block transition-all duration-500 ease-in-out
               ${loading ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}
-              ${loading ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}
-              h-full w-auto object-contain max-h-full
+              w-auto object-contain max-h-full max-w-full
             `}
           />
         </div>

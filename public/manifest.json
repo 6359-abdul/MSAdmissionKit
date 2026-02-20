@@ -1,0 +1,16 @@
+{
+    "name": "MS Admission Kit 2026",
+    "short_name": "Admission Kit",
+    "start_url": "/",
+    "display": "fullscreen",
+    "background_color": "#f1f5f9",
+    "theme_color": "#0f172a",
+    "orientation": "any",
+    "icons": [
+        {
+            "src": "/pages/page_1.jpg",
+            "sizes": "512x512",
+            "type": "image/jpeg"
+        }
+    ]
+}
