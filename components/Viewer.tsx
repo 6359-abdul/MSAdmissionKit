@@ -24,14 +24,37 @@ const Viewer: React.FC<ViewerProps> = ({
   currentNumber
 }) => {
   const [loading, setLoading] = useState(true);
+  const touchStartX = React.useRef<number>(0);
+  const touchEndX = React.useRef<number>(0);
 
   // Reset loading state when page changes
   useEffect(() => {
     setLoading(true);
   }, [currentPage.id]);
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    const diff = touchStartX.current - touchEndX.current;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0 && canNext) onNext();   // swipe left → next
+      if (diff < 0 && canPrev) onPrev();   // swipe right → prev
+    }
+  };
+
   return (
-    <main className="flex-1 flex flex-col relative bg-slate-100 overflow-hidden">
+    <main
+      className="flex-1 flex flex-col relative bg-slate-100 overflow-hidden"
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+    >
       {/* Header Bar */}
       <header className="h-10 bg-white border-b border-gray-200 flex items-center justify-between px-4 z-10 shadow-sm relative">
         <div className="flex items-center gap-4">
