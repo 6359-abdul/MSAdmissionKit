@@ -88,6 +88,18 @@ const Viewer: React.FC<ViewerProps> = ({
 
       {/* Content Area */}
       <div className="flex-1 overflow-auto bg-slate-200 flex items-center justify-center custom-scrollbar relative">
+        {currentPage.title === "Enquiry Form" && (
+          <a
+            href="https://ssolive.myclassboard.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="absolute top-16 right-6 sm:top-24 sm:right-8 z-30 bg-white/95 hover:bg-white text-emerald-700 px-4 py-3 sm:px-6 sm:py-3 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 font-bold flex items-center gap-2 group backdrop-blur-sm border border-emerald-100/50"
+          >
+            <span>Fill Online Form</span>
+            <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </a>
+        )}
+
         <div className="h-full w-full flex items-center justify-center" style={{ maxWidth: '100%', maxHeight: '100%' }}>
           {loading && (
             <div className="absolute inset-0 flex items-center justify-center bg-white/50 animate-pulse z-0 rounded-lg">
