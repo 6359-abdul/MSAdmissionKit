@@ -90,7 +90,7 @@ const Viewer: React.FC<ViewerProps> = ({
       <div className="flex-1 overflow-auto bg-slate-200 flex items-center justify-center custom-scrollbar relative">
         {currentPage.title === "Enquiry Form" && (
           <a
-            href="https://ssolive.myclassboard.com/"
+            href="https://msea.myclassboard.com/"
             target="_blank"
             rel="noopener noreferrer"
             className="absolute top-16 right-6 sm:top-24 sm:right-8 z-30 bg-white/95 hover:bg-white text-emerald-700 px-4 py-3 sm:px-6 sm:py-3 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 font-bold flex items-center gap-2 group backdrop-blur-sm border border-emerald-100/50"
